@@ -19,3 +19,4 @@ Route::get('/', function () {
 });
 Route::resource('products', ProductController::class);
 Route::resource('students', StudentController::class);
+Route::get('test/{id}',[StudentController::class, 'find'])->name("Assist");

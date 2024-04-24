@@ -31,7 +31,7 @@
                     <tbody>
                         @forelse ($students as $student)
                         <tr>
-                            <th scope="row">{{ $student->id}}</th>
+                            <th scope="row">{{$student->id}}</th>
                             <td>{{ $student->name }}</td>
                             <td>{{ $student->last_name }}</td>
                             <td>{{ $student->dni }}</td>
@@ -43,7 +43,7 @@
                                     @method('DELETE')
 
                                     <a href="{{ route('students.show', $student->id) }}" class="btn btn-warning btn-sm"><i class="bi bi-eye"></i> Info</a>
-
+                                    <a href="{{ route('Assist', $student->id) }}" class="btn btn-info btn-sm"><i class="bi bi-eye"></i> Asistencia</a>
                                     <a href="{{ route('students.edit', $student->id) }}" class="btn btn-primary btn-sm"><i class="bi bi-pencil-square"></i> Modificar</a>   
 
                                     <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Seguro que quiere eliminar al alumno?');"><i class="bi bi-trash"></i> Eliminar</button>

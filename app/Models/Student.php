@@ -16,4 +16,10 @@ class Student extends Model
         'birthday',
         'group'
     ];
-}
+
+        public function assists()
+        {
+            return $this->hasMany(Assist::class);
+        }
+    }
+

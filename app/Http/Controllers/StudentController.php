@@ -48,4 +48,10 @@ class StudentController extends Controller
         return redirect()->route('students.index')
                 ->withSuccess('El estudiante fue eliminado con exito.');
     }
+    public function find($id){
+        $student = Student::find($id);
+        $cant =$student->assists;
+       
+        return view('test', compact('cant'));
+    }
 }
