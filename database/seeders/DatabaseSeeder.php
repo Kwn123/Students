@@ -6,6 +6,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\Product;
 use App\Models\Student;
+use App\Models\Assist;
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -13,12 +14,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
         Student::factory(100)->create();
-        Product::factory(100)->create();
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        Assist::factory(1000)->create();
+
     }
 }

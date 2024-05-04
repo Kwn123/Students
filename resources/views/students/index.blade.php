@@ -17,6 +17,7 @@
             <div class="card-header">Lista de estudiantes</div>
             <div class="card-body">
                 <a href="{{ route('students.create') }}" class="btn btn-success btn-sm my-2"><i class="bi bi-plus-circle"></i> Añadir estudiante</a>
+                <a href="{{ route('parametros') }}" class="btn btn-secondary btn-sm my-2 float-end"><i class="bi bi-arrow-clockwise"></i> Parametros</a>
                 <table class="table table-striped table-bordered">
                     <thead>
                       <tr>
@@ -26,18 +27,20 @@
                         <th scope="col">DNI</th>
                         <th scope="col">Fecha de nacimiento</th>
                         <th scope="col">Grupo</th>
+                        <th scope="col">Estado</th>
                       </tr>
                     </thead>
                     <tbody>
                         @forelse ($students as $student)
                         <tr>
-                            <th scope="row">{{$student->id}}</th>
+                            <th scope="row" style="height: 50px; text-aling:center">{{$student->id}} </th>
                             <td>{{ $student->name }}</td>
                             <td>{{ $student->last_name }}</td>
                             <td>{{ $student->dni }}</td>
                             <td>{{ $student->birthday}}</td>
                             <td>{{ $student->group }}</td>
-                            <td>
+                            <td>{{ $student->status }}</td>
+                            <td style="width: 400px;">
                                 <form action="{{ route('students.destroy', $student->id) }}" method="post">
                                     @csrf
                                     @method('DELETE')

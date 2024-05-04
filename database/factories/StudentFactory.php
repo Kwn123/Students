@@ -21,6 +21,7 @@ class StudentFactory extends Factory
                 'last_name'=> fake()->lastName(),
                 'dni'=>fake()->randomNumber(8,false),
                 'birthday'=>fake()->date(),
+                'status'=>'N/A',
                 'group'=>fake()->randomElement(['A','B'])
         ];
     }

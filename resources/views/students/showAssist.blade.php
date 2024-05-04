@@ -14,7 +14,11 @@
         @endif
 
         <div class="card">
-            <div class="card-header">Lista de estudiantes</div>
+            <div class="card-header">Lista de estudiantes
+                <div class="float-end">
+                    <a href="{{ route('students.index') }}" class="btn btn-primary btn-sm">&larr; Atras</a>
+                </div>
+            </div>
             <div class="card-body">
                                 <table class="table table-striped table-bordered">
                     <thead>
