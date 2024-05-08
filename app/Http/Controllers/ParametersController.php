@@ -18,6 +18,12 @@ class ParametersController extends Controller
                 ->withSuccess('Parametros establecidos.');
     }
 
+    public function edit(){
+
+       $parameters = Parameters::find(1);
+        return view('parameters', compact('parameters'));
+    }
+
     public static function getParameters($id){
         $parameters = Parameters::find($id);
 

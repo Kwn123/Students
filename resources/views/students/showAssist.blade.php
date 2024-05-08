@@ -1,4 +1,4 @@
-@extends('students.layouts')
+@extends('layouts.app')
 
 @section('title','Asistencias')
 @section('titlePag', 'ASISTENCIAS')
@@ -24,7 +24,6 @@
                     <thead>
                       <tr>
                         <th scope="col">ID</th>
-                        <th scope="col">ID Estudiante</th>
                         <th scope="col">Ingreso</th>
                         <th scope="col">Egreso?</th>
                       </tr>
@@ -33,7 +32,6 @@
                         @forelse ($cant as $assit)
                         <tr>
                             <th scope="row">{{ $assit->id}}</th>
-                            <td>{{ $assit->student_id}}</td>
                             <td>{{ $assit->created_at }}</td>
                             <td>{{ $assit->updated_at }}</td>
                         </tr>

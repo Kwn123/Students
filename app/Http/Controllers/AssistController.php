@@ -2,10 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Student;
-use App\Http\Controllers\StudentController;
-use App\Models\Parameters;
 
 class AssistController extends Controller
 {
