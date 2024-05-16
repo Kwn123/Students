@@ -13,7 +13,6 @@ class StudentController extends Controller
         AssistController::status();
         $students = Student::all();
         $date = date('m-d');
-        $hoy = date("Y-m-d");
         $birthdayStudent = [];
         $i = 0;
         foreach ($students as $student) {
