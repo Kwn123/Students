@@ -23,7 +23,7 @@ class AssistController extends Controller
             foreach($students as $student) {
                 $assistCount = $student->assists->count();
                 $status = ($assistCount / $parameters->total)*100;
-                
+
                 if($status >= $parameters->promotion){
                     $status = "Promocional";
                 } else if($status >= $parameters->regular){

@@ -13,17 +13,19 @@ class StudentController extends Controller
         AssistController::status();
         $students = Student::all();
         $date = date('m-d');
+        $dateYear = date('Y');
         $birthdayStudent = [];
         $i = 0;
         foreach ($students as $student) {
             if ($date == date('m-d',strtotime($student->birthday))) {
                 $i++;
                 $birthdayStudent[$i] = $student->name . " " . $student->last_name;
+                $age = $dateYear - date('Y',strtotime($student->birthday));
             }
         }
         if ($birthdayStudent) {
             $students = Student::paginate(10);
-            return view('students.index', compact('students', 'birthdayStudent'));
+            return view('students.index', compact('students', 'birthdayStudent','age'));
         } else {
             $students = Student::paginate(10);
             return view('students.index', compact('students'));

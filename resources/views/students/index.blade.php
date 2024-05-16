@@ -16,7 +16,7 @@
             @if (@isset($birthdayStudent))
                 <div class="alert alert-success" role="alert">
                     @foreach ($birthdayStudent as $student)
-                        <h1>Feliz cumpleaños {{ $student }}!</h1>
+                        <h1>Feliz cumpleaños {{ $student }} hoy cumple {{$age}}!</h1>
                     @endforeach
                 </div>
             @endif
