@@ -20,6 +20,14 @@ class ParametersController extends Controller
 
     public function edit(){
 
+        $parameters = Parameters::first();
+        if (!$parameters) {
+            $parameters = new Parameters();
+            $parameters->total = 0;
+            $parameters->promotion = 0;
+            $parameters->regular = 0;
+            $parameters->save();
+        }
        $parameters = Parameters::find(1);
         return view('parameters', compact('parameters'));
     }

@@ -11,8 +11,24 @@ class StudentController extends Controller
     public function index()
     {
         AssistController::status();
-        $students = Student::paginate(10);
-        return view('students.index', compact('students'));
+        $students = Student::all();
+        $date = date('m-d');
+        $hoy = date("Y-m-d");
+        $birthdayStudent = [];
+        $i = 0;
+        foreach ($students as $student) {
+            if ($date == date('m-d',strtotime($student->birthday))) {
+                $i++;
+                $birthdayStudent[$i] = $student->name . " " . $student->last_name;
+            }
+        }
+        if ($birthdayStudent) {
+            $students = Student::paginate(10);
+            return view('students.index', compact('students', 'birthdayStudent'));
+        } else {
+            $students = Student::paginate(10);
+            return view('students.index', compact('students'));
+        }
     }
 
     public function create()
@@ -22,9 +38,16 @@ class StudentController extends Controller
 
     public function store(StoreStudentRequest $request)
     {
-        Student::create($request->all());
-        return redirect()->route('students.index')
-            ->withSuccess('Nuevo estudiante agregado con exito.');
+        $year = date('Y');
+        $yearStudent = date('Y', strtotime($request->birthday));
+        if (($year - $yearStudent) >= 17) {
+            Student::create($request->all());
+            return redirect()->route('students.index')
+                ->withSuccess('Nuevo estudiante agregado con exito.');
+        } else {
+            return redirect()->route('students.create')
+                ->with('Error', 'Estudiante menor de edad.');
+        }
     }
 
     public function edit(Student $student)
@@ -52,12 +75,12 @@ class StudentController extends Controller
         $student = Student::find($id);
         $cant = $student->assists;
 
-        return view('students/showAssist', compact('cant'));
+        return view('assist/showAssist', compact('cant'));
     }
 
     public function show(Student $student)
     {
-        $assistCount = (new AssistController())->assistCount($student);
+        $assistCount = $student->assists->count();
         $fecha = $student->birthday;
         $fechaCorrecta = date('m/d/Y', strtotime($fecha));
 

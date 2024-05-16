@@ -9,9 +9,12 @@ class Assist extends Model
 {
     use HasFactory;
 
-        public function student()
-        {
-            return $this->belongsTo(student::class);
-        }
-    }
+    protected $fillable = [
+        'student_id'
+    ];
 
+    public function student()
+    {
+        return $this->belongsTo(student::class);
+    }
+}

@@ -1,9 +1,8 @@
-
 @extends('layouts.app')
 
 @section('title', 'Estudiantes')
 @section('titlePag', 'ESTUDIANTES')
-@section('content') 
+@section('content')
 
     <div class="row justify-content-center mt-3">
         <div class="col-md-12">
@@ -14,13 +13,18 @@
                 </div>
             @endif
 
+            @if (@isset($birthdayStudent))
+                <div class="alert alert-success" role="alert">
+                    @foreach ($birthdayStudent as $student)
+                        <h1>Feliz cumpleaños {{ $student }}!</h1>
+                    @endforeach
+                </div>
+            @endif
             <div class="card">
                 <div class="card-header">Lista de estudiantes</div>
                 <div class="card-body">
                     <a href="{{ route('students.create') }}" class="btn btn-success btn-sm my-2"><i
                             class="bi bi-plus-circle"></i> Añadir estudiante</a>
-                    <a href="{{ route('parametros') }}" class="btn btn-secondary btn-sm my-2 float-end"><i
-                            class="bi bi-arrow-clockwise"></i> Parametros</a>
                     <table class="table table-striped table-bordered">
                         <thead>
                             <tr>
@@ -40,7 +44,7 @@
                                     <td>{{ $student->name }}</td>
                                     <td>{{ $student->last_name }}</td>
                                     <td>{{ $student->dni }}</td>
-                                    <td>{{ $student->birthday }}</td>
+                                    <td>{{ $fecha = date('d-m-Y', strtotime($student->birthday)) }}</td>
                                     <td>{{ $student->group }}</td>
                                     <td>{{ $student->status }}</td>
                                     <td style="width: 400px;">
@@ -77,4 +81,4 @@
         </div>
     </div>
 
- @endsection 
+@endsection

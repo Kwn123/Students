@@ -46,6 +46,7 @@
 
         </main>
     </div>
+    <script src="{{asset('js/search.js')}}" type="module"></script>
 </body>
 
 </html>

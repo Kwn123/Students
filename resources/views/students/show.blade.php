@@ -1,4 +1,7 @@
-@extends('students.layouts')
+@extends('layouts.app')
+
+@section('title', 'Informacion')
+@section('titlePag', 'Informacion')
 
 @section('content')
 

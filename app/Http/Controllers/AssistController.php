@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Student;
+use App\Models\Assist;
+use Illuminate\Http\Request;
+use Psy\CodeCleaner\AssignThisVariablePass;
 
 class AssistController extends Controller
 {
@@ -33,9 +36,53 @@ class AssistController extends Controller
                 $student->save();
             }
         }
-        
         return $students;
     }
 
-  
+
+    public function showSearchForm()
+    {
+        return view('searchForm');
+    }
+
+    public function search(Request $request)
+    {
+        $search = $request->input('search');
+        $students = null;
+
+        if ($search) {
+            $students = Student::search($search)->orderBy('id','asc')->get();
+            if($students->isEmpty()){
+                $search = true;
+            }
+        }
+        return view('assist/search', compact('search', 'students'));
+    }
+
+    public function saveAssist($id){
+        $dateDay=date('Y-m-d');
+        $student = Student::find($id);
+        $asistencias = $student->assists;
+        foreach ($asistencias as $asis) {
+            $date = $asis->created_at->format('Y-m-d');
+            if($date === $dateDay){
+                return redirect('Asistencias')->withErrors('Ya hay una asistencia de hoy.');
+            };
+        }
+        $assist = new Assist;
+        $assist->student_id = $id;
+        $assist->save();
+
+        return redirect('Asistencias')->withSuccess('Asistencia agregada con exito.');
+    }
+
+    public function showEdit($id){
+        $assist = Assist::find($id);
+        return view('Assist/showEdit',compact('assist'));
+    }
+    public function showEditUpdate(Request $request){  
+        $Assit = Assist::find($request->id);
+        $Assit->update($request->save());
+        return redirect('students')->withSuccess('Asistencia modificada con exito.');
+    }
 }

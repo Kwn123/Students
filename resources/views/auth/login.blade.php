@@ -31,14 +31,17 @@
                 <span class="ms-2 text-sm text-gray-600">{{ __('Recuerdame') }}</span>
             </label>
         </div>
-
+        
         <div class="flex items-center justify-end mt-4">
+            <a class="underline  text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('register') }}">
+                {{ __('Registrarse') }}
+            </a>
             @if (Route::has('password.request'))
-                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
+                <a class="underline ml-4 text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
                     {{ __('Olvidaste la contraseña?') }}
                 </a>
             @endif
-
+            
             <x-primary-button class="ms-3">
                 {{ __('Log in') }}
             </x-primary-button>

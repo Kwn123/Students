@@ -1,0 +1,90 @@
+@extends('layouts.app')
+
+@section('title', 'Asistencia')
+@section('titlePag', 'Añadir asistencia')
+
+@section('content')
+
+    {{-- <form action="{{ route('processSearch') }}" method="post">
+    @csrf
+    <input type="text" name="search" placeholder="Ingrese su búsqueda">
+    <button type="submit">Buscar</button>
+</form> --}}
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <form action="{{ route('search') }}" method="get" class="text-center mt-4 mb-4">
+                    <div class="mb-3 text-center">
+                        <input type="text" class="form-control text-center mx-auto" style="width: 40%" name="search" placeholder="Ingrese su búsqueda"
+                            value="{{ $search }}">
+                    </div>
+                    <button type="submit" class="btn btn-primary ">Buscar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="container" style="width: 100%">
+    @if ($message = Session::get('success'))
+        <div class="alert alert-success text-center mx-auto" role="alert">
+            {{ $message }}
+        </div>
+    @endif
+    @if ($errors->any())
+        <div class="alert alert-danger text-center mx-auto" style="width: 50%;">
+            {{ $errors->first() }}
+        </div>
+    @endif
+    @if ($students == null)
+        
+    @else
+        @if ($search === true)
+            <div class="alert alert-danger text-center mx-auto" role="alert" style="width: 50%;" >
+                <h1>No se encontraron coincidencias</h1>
+            </div>
+        </div>
+        @else
+            <div class="card">
+                <div class="card-header text-center">Lista de busqueda</div>
+                <div class="card-body">
+                    <table class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Apellido</th>
+                                <th scope="col">DNI</th>
+                                <th scope="col">Fecha de nacimiento</th>
+                                <th scope="col">Grupo</th>
+                                <th scope="col">Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($students as $student)
+                                <tr>
+                                    <th scope="row" style="height: 50px; text-aling:center">{{ $student->id }} </th>
+                                    <td>{{ $student->name }}</td>
+                                    <td>{{ $student->last_name }}</td>
+                                    <td>{{ $student->dni }}</td>
+                                    <td>{{ $student->birthday }}</td>
+                                    <td>{{ $student->group }}</td>
+                                    <td>{{ $student->status }}</td>
+                                    <td style="width: 400px;">
+
+
+                                        <form action="{{ route('saveAssist', $student->id) }}" method="get">
+                                            @csrf
+                                            <input class="btn btn-success btn-sm" type="submit" value="Añadir asistencia">
+                                        </form>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            </div>
+            </div>
+        @endif
+    @endif
+@endsection

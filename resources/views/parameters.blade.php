@@ -1,6 +1,12 @@
-@extends('students.layouts')
+@extends('layouts.app')
+
+@section('title', 'Parametros')
+@section('titlePag', 'Parametros')
 
 @section('content')
+
+
+
 
 <div class="row justify-content-center mt-3">
     <div class="col-md-8">

@@ -10,11 +10,11 @@ use App\Http\Controllers\ParametersController;
 
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/students');
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return redirect('/students');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
@@ -31,5 +31,8 @@ Route::get('students/showAssist/{id}',[StudentController::class, 'find'])->name(
 
 Route::get('Parametros',[ParametersController::class, 'edit'])->name('parametros');
 
+Route::get('Asistencias', [AssistController::class, 'search'])->name('search');
 
-Route::get('test', [AssistController::class, 'status'])->name('parame');
+Route::get('Asistencias/{id}',[AssistController::class, 'saveAssist'])->name('saveAssist');
+Route::get('Asistencias/edit/{id}',[AssistController::class, 'showEdit'])->name('showEdit');
+Route::put('Asistencias',[AssistController::class, 'showEditUpdate'])->name('showEdit.update');
