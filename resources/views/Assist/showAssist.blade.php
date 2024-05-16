@@ -33,9 +33,7 @@
                             @forelse ($cant as $assit)
                                 <tr>
                                     <th scope="row">{{ $assit->id }}</th>
-                                    <td>{{ $assit->created_at }}</td>
-                                    <td> <a href="{{route('showEdit', $assit->id)}}" class="btn btn-info btn-sm"><i class="bi bi-pencil"></i>
-                                            Editar</a></td>
+                                    <td>{{date('d-m-Y H:i',strtotime($assit->created_at)) }}</td>
                                 </tr>
                             @empty
                                 <td colspan="6">
