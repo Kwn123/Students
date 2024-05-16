@@ -46,13 +46,12 @@ class AssistController extends Controller
     }
 
     public function search(Request $request)
-    {
-        $search = $request->input('search');
+    {                                       
+        $search = $request->input('search'); // ->input('name') | name:"name" |
         $students = null;
-
         if ($search) {
             $students = Student::search($search)->orderBy('id','asc')->get();
-            if($students->isEmpty()){
+            if($students->isEmpty()){ //isEmpty() verifica si la coleccion esta vacia
                 $search = true;
             }
         }

@@ -4,13 +4,6 @@
 @section('titlePag', 'Añadir asistencia')
 
 @section('content')
-
-    {{-- <form action="{{ route('processSearch') }}" method="post">
-    @csrf
-    <input type="text" name="search" placeholder="Ingrese su búsqueda">
-    <button type="submit">Buscar</button>
-</form> --}}
-
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6">
@@ -36,7 +29,6 @@
         </div>
     @endif
     @if ($students == null)
-        
     @else
         @if ($search === true)
             <div class="alert alert-danger text-center mx-auto" role="alert" style="width: 50%;" >
