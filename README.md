@@ -41,7 +41,7 @@ Tienen dos opciones para obtener el código de la aplicación:
 3. Colocar el siguiente comando:
    composer install
 
-##### Paso 5: Instalar los paquetes de dependencia de VITE.
+#### Paso 5: Instalar los paquetes de dependencia de VITE.
 1. Abrir la terminar de Laragon.
 2. Nabegar hasta la carpeta de la aplicacion:
    cd CC:\laragon\www\Students (Un ejemplo, esto seria donde se descomprimio o clono)
