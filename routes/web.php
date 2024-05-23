@@ -6,8 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\AssistController;
 use App\Http\Controllers\ParametersController;
-
-
+use App\Http\Controllers\pdfController;
 
 Route::get('/', function () {
     return redirect('/students');
@@ -36,3 +35,5 @@ Route::get('Asistencias', [AssistController::class, 'search'])->name('search');
 Route::get('Asistencias/{id}',[AssistController::class, 'saveAssist'])->name('saveAssist');
 Route::get('Asistencias/edit/{id}',[AssistController::class, 'showEdit'])->name('showEdit');
 Route::put('Asistencias',[AssistController::class, 'showEditUpdate'])->name('showEdit.update');
+
+Route::get('download_pdf',[pdfController::class, 'pdf'])->name('downloadPdf');
