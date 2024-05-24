@@ -35,7 +35,7 @@
                     </div>
 
                     <div class="mb-3 row">
-                        <label for="promotion" class="col-md-4 col-form-label text-md-end text-start">Cantidad de clases para promocionar:</label>
+                        <label for="promotion" class="col-md-4 col-form-label text-md-end text-start">Porcentaje para poder promocionar:</label>
                         <div class="col-md-6">
                           <input type="text" class="form-control @error('promotion') is-invalid @enderror" id="promotion" name="promotion" value="{{ $parameters->promotion }}">
                             @if ($errors->has('promotion'))
@@ -45,7 +45,7 @@
                     </div>
                     
                     <div class="mb-3 row">
-                        <label for="regular" class="col-md-4 col-form-label text-md-end text-start">Cantidad de clases para quedar regular:</label>
+                        <label for="regular" class="col-md-4 col-form-label text-md-end text-start">Porcentaje para ser regular:</label>
                         <div class="col-md-6">
                           <input type="text" class="form-control @error('regular') is-invalid @enderror" id="regular" name="regular" value="{{ $parameters->regular }}">
                             @if ($errors->has('regular'))

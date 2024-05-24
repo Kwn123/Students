@@ -19,7 +19,7 @@
                 </div>
             @endif
                 <div class="card-body">
-                    <form action="{{ route('students.store') }}" method="post">
+                    <form action="{{ route('students.store', $val) }}" method="post">
                         @csrf
 
                         <div class="mb-3 row">

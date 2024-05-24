@@ -36,4 +36,5 @@ Route::get('Asistencias/{id}',[AssistController::class, 'saveAssist'])->name('sa
 Route::get('Asistencias/edit/{id}',[AssistController::class, 'showEdit'])->name('showEdit');
 Route::put('Asistencias',[AssistController::class, 'showEditUpdate'])->name('showEdit.update');
 
-Route::get('download_pdf',[pdfController::class, 'pdf'])->name('downloadPdf');
+Route::post('download_pdf',[pdfController::class, 'pdf'])->name('downloadPdf');
+Route::get('parameters_pdf',[pdfController::class, 'parametersPdf'])->name('viewParamPdf');

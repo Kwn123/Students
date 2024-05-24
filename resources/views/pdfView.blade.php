@@ -35,6 +35,7 @@
                 <th>Nombre</th>
                 <th>Apellido</th>
                 <th>DNI</th>
+                <th>Grado</th>
                 <th>Asistencias</th>
                 <th>Condicion</th>
             </tr>
@@ -46,6 +47,7 @@
                 <td>{{ $student->name }}</td>
                 <td>{{ $student->last_name }}</td>
                 <td>{{ $student->dni }}</td>
+                <td>{{ $student->grade }}</td>
                 <td>{{ $student->assist }}</td>
                 <td>{{ $student->status }}</td>    
             </tr>

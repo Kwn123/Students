@@ -25,7 +25,7 @@
                 <div class="card-body">
                     <div class="flex justify-between">
                         <a href="{{ route('students.create') }}" class="btn btn-success btn-sm my-2"><i class="bi bi-plus-circle"></i> Añadir estudiante</a>
-                        <a href="{{ route('downloadPdf') }}" class="btn btn-secondary btn-sm my-2 no-hover"><i class="bi bi-eye"></i> Descargar pdf</a>
+                        <a href="{{ route('viewParamPdf') }}" class="btn btn-secondary btn-sm my-2 no-hover"><i class="bi bi-eye"></i> Imprimir informe</a>
                     </div>
                     <table class="table table-striped table-bordered">
                         <thead>
@@ -35,6 +35,7 @@
                                 <th scope="col">Apellido</th>
                                 <th scope="col">DNI</th>
                                 <th scope="col">Fecha de nacimiento</th>
+                                <th scope="col">Año</th>
                                 <th scope="col">Grupo</th>
                                 <th scope="col">Estado</th>
                             </tr>
@@ -47,6 +48,7 @@
                                     <td>{{ $student->last_name }}</td>
                                     <td>{{ $student->dni }}</td>
                                     <td>{{ $fecha = date('d-m-Y', strtotime($student->birthday)) }}</td>
+                                    <td>{{ $student->grade }}</td>
                                     <td>{{ $student->group }}</td>
                                     <td>{{ $student->status }}</td>
                                     <td style="width: 400px;">

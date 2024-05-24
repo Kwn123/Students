@@ -17,6 +17,7 @@ class Student extends Model
         'last_name',
         'dni',
         'birthday',
+        'year',
         'group',
         'status'
     ];
@@ -34,6 +35,7 @@ class Student extends Model
             'name' => $this->name,
             'last_name' => $this->last_name,
             'id' => $this->id,
+            'grade' => $this->year,
             'status' => $this->status,
         ];
     }
