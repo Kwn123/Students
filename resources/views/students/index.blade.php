@@ -4,7 +4,7 @@
 @section('titlePag', 'ESTUDIANTES')
 @section('content')
 
-    <div class="row justify-content-center mt-3">
+    <div class="justify-content-center mt-3">
         <div class="col-md-12">
 
             @if ($message = Session::get('success'))
@@ -13,12 +13,27 @@
                 </div>
             @endif
 
-            @if (@isset($birthdayStudent))
-                <div class="alert alert-success" role="alert">
-                    @foreach ($birthdayStudent as $student)
-                        <h1>Feliz cumpleaños {{ $student }} hoy cumple {{$age}}!</h1>
-                    @endforeach
+            @if (@isset($dateBirthday))
+
+            <div class="flex pl-4 pt-2 pb-2 mb-2 text-bm justify-center text-blue-800 rounded-lg bg-blue-50 dark:bg-gray-100 dark:text-blue-600" role="alert">
+                <svg class="flex-shrink-0 inline w-4 h-4 me-3 mt-[2px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+                </svg>
+                <span class="sr-only">Feliz cumple</span>
+                <div>
+                  <span class="font-medium">Feliz cumpleaños!:</span>
+                    <ul class="mt-1.5 list-disc list-inside">
+                        @foreach ($dateBirthday as $student)
+                      <li>{{$student[0]}} hoy cumple {{$student[1]}}!</li>
+                      @endforeach
+                  </ul>
                 </div>
+              </div>
+                {{-- <div class="alert alert-success" role="alert">
+                    @foreach ($dateBirthday as $student)
+                        <h1>Feliz cumpleaños {{$student[0] }} hoy cumple {{$student[1]}}!</h1>
+                    @endforeach
+                </div> --}}
             @endif
             <div class="card">
                 <div class="card-header">Lista de estudiantes</div>

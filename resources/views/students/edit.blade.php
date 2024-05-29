@@ -80,6 +80,21 @@
                             @endif
                         </div>
                     </div>
+                    <div class="mb-3 row">
+                        <label for="grade" class="col-md-4 col-form-label text-md-end text-start">Grado</label>
+                        <div class="col-md-6">
+                            <select name="grade">
+                                <option value="Primero" {{ $student->grade === 'Primero' ? 'selected' : '' }}>Primero</option>
+                                <option value="Segundo" {{ $student->grade === 'Segundo' ? 'selected' : '' }}>Segundo</option>
+                                <option value="Tercero" {{ $student->grade === 'Tercero' ? 'selected' : '' }}>Tercero</option>
+                                <option value="Cuarto" {{ $student->grade === 'Cuarto' ? 'selected' : '' }}>Cuarto</option>
+                                <option value="Quinto" {{ $student->grade === 'Quinto' ? 'selected' : '' }}>Quinto</option>
+                            </select></label>
+                            @if ($errors->has('grade'))
+                                <span class="text-danger">{{ $errors->first('grade') }}</span>
+                            @endif
+                        </div>
+                    </div>
                     
                     <div class="mb-3 row">
                         <input type="submit" class="col-md-3 offset-md-5 btn btn-primary" value="Modificar">

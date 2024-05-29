@@ -19,7 +19,7 @@
                 </div>
             @endif
                 <div class="card-body">
-                    <form action="{{ route('students.store', $val) }}" method="post">
+                    <form action="{{ route('students.store') }}" method="post">
                         @csrf
 
                         <div class="mb-3 row">
@@ -76,6 +76,21 @@
                                 </select>
                                 @if ($errors->has('group'))
                                     <span class="text-danger">{{ $errors->first('group') }}</span>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="grade" class="col-md-4 col-form-label text-md-end text-start">Grado</label>
+                            <div class="col-md-6">
+                                <select name="grade" id="grade">
+                                    <option value="Primero">Primero</option>
+                                    <option value="Segundo">Segundo</option>
+                                    <option value="Tercero">Tercero</option>
+                                    <option value="Cuarto">Cuarto</option>
+                                    <option value="Quinto">Quinto</option>
+                                </select>
+                                @if ($errors->has('grade'))
+                                    <span class="text-danger">{{ $errors->first('grade') }}</span>
                                 @endif
                             </div>
                         </div>

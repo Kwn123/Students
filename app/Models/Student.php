@@ -18,6 +18,7 @@ class Student extends Model
         'dni',
         'birthday',
         'year',
+        'grade',
         'group',
         'status'
     ];
