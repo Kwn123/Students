@@ -67,19 +67,6 @@
                             @endif
                         </div>
                     </div>
-
-                    <div class="mb-3 row">
-                        <label for="group" class="col-md-4 col-form-label text-md-end text-start">Grupo</label>
-                        <div class="col-md-6">
-                            <select name="group">
-                                <option value="A" {{ $student->group === 'A' ? 'selected' : '' }}>A</option>
-                                <option value="B" {{ $student->group === 'B' ? 'selected' : '' }}>B</option>
-                            </select></label>
-                            @if ($errors->has('group'))
-                                <span class="text-danger">{{ $errors->first('group') }}</span>
-                            @endif
-                        </div>
-                    </div>
                     <div class="mb-3 row">
                         <label for="grade" class="col-md-4 col-form-label text-md-end text-start">Grado</label>
                         <div class="col-md-6">

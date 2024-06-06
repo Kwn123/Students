@@ -8,6 +8,7 @@ use App\Http\Controllers\AssistController;
 use App\Http\Controllers\ParametersController;
 use App\Http\Controllers\pdfController;
 
+
 Route::get('/', function () {
     return redirect('/students');
 });
@@ -32,9 +33,11 @@ Route::get('Parametros',[ParametersController::class, 'edit'])->name('parametros
 
 Route::get('Asistencias', [AssistController::class, 'search'])->name('search');
 
-Route::get('Asistencias/{id}',[AssistController::class, 'saveAssist'])->name('saveAssist');
+Route::post('Asistencias/{id}',[AssistController::class, 'saveAssist'])->name('saveAssist');
 Route::get('Asistencias/edit/{id}',[AssistController::class, 'showEdit'])->name('showEdit');
 Route::put('Asistencias',[AssistController::class, 'showEditUpdate'])->name('showEdit.update');
 
-Route::post('download_pdf',[pdfController::class, 'pdf'])->name('downloadPdf');
+Route::post('Download',[pdfController::class, 'downloadAction'])->name('download');
 Route::get('parameters_pdf',[pdfController::class, 'parametersPdf'])->name('viewParamPdf');
+
+Route::post('/save-assistance/{id}', [AssistController::class, 'saveAssistance'])->name('saveAssistance');

@@ -25,8 +25,6 @@
                             <tr>
                                 <th scope="col">ID</th>
                                 <th scope="col">Ingreso</th>
-
-
                             </tr>
                         </thead>
                         <tbody>

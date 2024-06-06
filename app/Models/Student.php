@@ -19,7 +19,6 @@ class Student extends Model
         'birthday',
         'year',
         'grade',
-        'group',
         'status'
     ];
 

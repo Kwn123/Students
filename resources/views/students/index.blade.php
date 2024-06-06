@@ -51,7 +51,6 @@
                                 <th scope="col">DNI</th>
                                 <th scope="col">Fecha de nacimiento</th>
                                 <th scope="col">Año</th>
-                                <th scope="col">Grupo</th>
                                 <th scope="col">Estado</th>
                             </tr>
                         </thead>
@@ -64,7 +63,6 @@
                                     <td>{{ $student->dni }}</td>
                                     <td>{{ $fecha = date('d-m-Y', strtotime($student->birthday)) }}</td>
                                     <td>{{ $student->grade }}</td>
-                                    <td>{{ $student->group }}</td>
                                     <td>{{ $student->status }}</td>
                                     <td style="width: 400px;">
                                         <form action="{{ route('students.destroy', $student->id) }}" method="post">

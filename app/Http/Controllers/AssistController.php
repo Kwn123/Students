@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Student;
 use App\Models\Assist;
 use Illuminate\Http\Request;
-use Psy\CodeCleaner\AssignThisVariablePass;
 
 class AssistController extends Controller
 {
@@ -97,36 +96,35 @@ class AssistController extends Controller
         }
         return view('assist/search', compact('search', 'students'));
     }
-
+ 
     /**
      * La función `saveAssist` verifica si un estudiante ya ha marcado la asistencia para el día actual
      * y, en caso contrario, agrega un nuevo registro de asistencia.
      * 
-     * @param id La función "saveAssist" que proporcionó parece ser parte de un sistema que maneja la
-     * asistencia de los estudiantes. En esta función verifica si ya existe un registro de asistencia
-     * para el día actual de un estudiante específico. Si no lo hay, crea un nuevo registro de
-     * asistencia para ese estudiante.
+     * @param id El parámetro `id` en la función `saveAssist` se utiliza para identificar al estudiante
+     * para quien se guarda la asistencia. Se utiliza para recuperar el registro del estudiante de la
+     * base de datos y asociar la entrada de asistencia con ese estudiante.
      * 
-     * @return una respuesta de redireccionamiento a la ruta 'Asistencias' con un mensaje de éxito si
-     * se agrega exitosamente un nuevo registro de asistencia para el estudiante con la identificación
-     * proporcionada. Si ya existe un registro de asistencia para la fecha actual, devolverá una
-     * respuesta de redireccionamiento con un mensaje de error indicando que ya existe un registro de
-     * asistencia para hoy.
+     * @return La función `saveAssist()` devuelve una respuesta JSON con el estado y el mensaje
+     * según el resultado de la operación.
      */
-    public function saveAssist($id){
-        $dateDay=date('Y-m-d');
+    public function saveAssist($id)
+    {
+        $dateDay = Date('Y-m-d');
         $student = Student::find($id);
+
         $asistencias = $student->assists;
         foreach ($asistencias as $asis) {
             $date = $asis->created_at->format('Y-m-d');
-            if($date === $dateDay){
-                return redirect('Asistencias')->withErrors('Ya hay una asistencia de hoy.');
-            };
+            if ($date === $dateDay) {
+                return redirect()->back()->withErrors('Ya hay una asistencia de hoy.');
+            }
         }
+
         $assist = new Assist;
         $assist->student_id = $id;
         $assist->save();
-
-        return redirect('Asistencias')->withSuccess('Asistencia agregada con exito.');
+        return redirect()->back()->with('success', 'Asistencia agregada con éxito.');
     }
+
 }

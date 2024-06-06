@@ -41,13 +41,6 @@
                     </div>
 
                     <div class="row">
-                        <label for="group" class="col-md-4 col-form-label text-md-end text-start"><strong>Grupo:</strong></label>
-                        <div class="col-md-6" style="line-height: 35px;">
-                            {{ $student->group }}
-                        </div>
-                    </div>
-
-                    <div class="row">
                         <label for="birthday" class="col-md-4 col-form-label text-md-end text-start"><strong>Fecha de nacimiento:</strong></label>
                         <div class="col-md-6" style="line-height: 35px;">
                             {{ $fechaCorrecta }}

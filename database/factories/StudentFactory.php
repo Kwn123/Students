@@ -22,7 +22,6 @@ class StudentFactory extends Factory
                 'dni'=>fake()->randomNumber(8,false),
                 'birthday'=>fake()->date(),
                 'status'=>'N/A',
-                'group'=>fake()->randomElement(['A','B']),
                 'grade'=>fake()->randomElement(['Primero','Segundo','Tercero','Cuarto','Quinto'])
         ];
     }

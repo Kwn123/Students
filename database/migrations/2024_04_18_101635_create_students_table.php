@@ -18,7 +18,6 @@ return new class extends Migration
             $table->integer('dni');
             $table->date('birthday');
             $table->string('status');
-            $table->enum('group', ['A','B']);
             $table->enum('grade', ['Primero','Segundo','Tercero','Cuarto','Quinto']);
             $table->timestamps();
         });
